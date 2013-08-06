@@ -8,9 +8,9 @@
 //  Copyright (c) 2013 sakiwei.
 //
 
-#import "VerbalExpression.h"
+#import "VerbalExpressions.h"
 
-@implementation VerbalExpression{
+@implementation VerbalExpressions{
     @private
     NSString *_prefixes;
     NSString *_source;
@@ -21,16 +21,16 @@
 #pragma mark - initialize
 
 /**
- Creates and initializes an `VerbalExpression` object.
+ Creates and initializes an `VerbalExpressions` object.
  
- @return The newly-initialized `VerbalExpression` object
+ @return The newly-initialized `VerbalExpressions` object
  */
 + (instancetype)expression{
     return [[self alloc] init];
 }
 
 /**
- Initializes an `VerbalExpression` object.
+ Initializes an `VerbalExpressions` object.
  */
 - (id)init {
     if ((self=[super init])) {

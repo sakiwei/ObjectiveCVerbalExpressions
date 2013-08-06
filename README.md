@@ -15,11 +15,10 @@ Drags `VerbalExpressions.h` and `VerbalExpressions.m` into your projects and `im
 ## Examples
 
 ```objective-c
-// some tests
 // url matches
-VerbalExpression *tester = [[[[[[[[VerEX() startOfLine] then:@"http"] maybe:@"s"] then:@"://"] maybe:@"www."] anythingBut:@" "] range:@[@"a",@"e"]] endOfLine];
+VerbalExpressions *tester = [[[[[[[[VerEX() startOfLine] then:@"http"] maybe:@"s"] then:@"://"] maybe:@"www."] anythingBut:@" "] range:@[@"a",@"e"]] endOfLine];
 
-NSString *testMe = @"https://www.google.com/abee";
+NSString *testMe = @"https://www.google.com/";
 if( [tester test:testMe] ){
     NSLog(@"We have a correct URL ");
 }else{
@@ -28,8 +27,8 @@ if( [tester test:testMe] ){
 
 // replace string
 NSString *replaceMe = @"Replace bird with a duck";
-VerbalExpression *tester2 = [VerEX() find:@"bird"];
-NSString *result = [tester2 replace:replaceMe by:@"duck"];
+tester = [VerEX() find:@"bird"];
+NSString *result = [tester replace:replaceMe by:@"duck"];
 NSLog(@"result = %@",result);
 
 // shorthand for string replace

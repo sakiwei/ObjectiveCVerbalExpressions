@@ -12,25 +12,25 @@
 #import <Foundation/Foundation.h>
 
 /**
- Shorthand for creating `VerbalExpression` object
+ Shorthand for creating `VerbalExpressions` object
  */
-#define VerEX() [VerbalExpression expression]
+#define VerEX() [VerbalExpressions expression]
 
-@interface VerbalExpression : NSObject
+@interface VerbalExpressions : NSObject
 /**
- The NSRegularExpression object which created by VerbalExpression commands
+ The NSRegularExpression object which created by VerbalExpressions commands
  */
 @property (strong, nonatomic, readonly) NSRegularExpression *regex;
 
 /**
- The NSRegularExpressionOptions which created by VerbalExpression commands
+ The NSRegularExpressionOptions which created by VerbalExpressions commands
  */
 @property (nonatomic, readonly) NSRegularExpressionOptions regexOptions;
 
 /**
- Creates and initializes an `VerbalExpression` object.
+ Creates and initializes an `VerbalExpressions` object.
  
- @return The newly-initialized `VerbalExpression` object
+ @return The newly-initialized `VerbalExpressions` object
  */
 + (instancetype)expression;
 
@@ -39,14 +39,14 @@
  
  @param value the stuff to be added
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)add:(NSString *)value;
 
 /**
  Mark the expression to start at the beginning of the line.
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)startOfLine;
 
@@ -55,14 +55,14 @@
  
  @param enable Enables or disables the line starting
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)startOfLine:(BOOL)enable;
 
 /**
  Mark the expression to end at the last character of the line.
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)endOfLine;
 
@@ -71,7 +71,7 @@
  
  @param enable Enables or disables the line ending.
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)endOfLine:(BOOL)enable;
 
@@ -80,7 +80,7 @@
  
  @param value The string to be looked for
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)then:(NSString *)value;
 
@@ -89,7 +89,7 @@
  
  @param value The string to be looked for
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)find:(NSString *)value;
 
@@ -98,14 +98,14 @@
 
  @param value The string to be looked for
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)maybe:(NSString *)value;
 
 /**
  Accept any string
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)anything;
 
@@ -114,14 +114,14 @@
  
  @param value The unaccepted chars
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)anythingBut:(NSString *)value;
 
 /**
  Accept any non-empty string
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)something;
 
@@ -130,7 +130,7 @@
  
  @param value The unaccepted chars
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)somethingBut:(NSString *)value;
 
@@ -148,28 +148,28 @@
 /**
  Matches line break
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)lineBreak;
 
 /**
  Shorthand for lineBreak
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)br;
 
 /**
  Matches tabs.
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)tab;
 
 /**
  Matches any alfanumeric
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)word;
 
@@ -178,7 +178,7 @@
  
  @param value The chars looked for
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)anyOf:(NSString *)value;
 
@@ -187,32 +187,32 @@
  
  @param value The chars looked for
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)any:(NSString *)value;
 
 /**
  Adds a range to our expresion example:
-    [[VerbalExpression expression] range:@[a,z,0,9]]
+    [[VerbalExpressions expression] range:@[a,z,0,9]]
     => a-z
  
  @param args array of paired char ranges
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)range:(NSArray *)args;
 
 /**
  Adds a modifier
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)addModifier:(NSRegularExpressionOptions)regularExpressionOptions;
 
 /**
  Removes a modifier
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)removeModifier:(NSRegularExpressionOptions)regularExpressionOptions;
 
@@ -221,7 +221,7 @@
  
  @param enable Enables or disables case sensitive. Default true
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)withAnyCase:(BOOL)enable;
 
@@ -230,7 +230,7 @@
  
  @param value Your expresion
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)multiple:(NSString *)value;
 
@@ -239,7 +239,7 @@
  
  @param value new expression
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)_or:(NSString *)value;
 
@@ -250,7 +250,7 @@
  
  @param escaped the value is escaped for Regex or not
  
- @return current `VerbalExpression` object
+ @return current `VerbalExpressions` object
  */
 - (id)_or:(NSString *)value escaped:(BOOL)escaped;
 
