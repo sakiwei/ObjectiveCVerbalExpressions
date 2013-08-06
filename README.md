@@ -16,7 +16,7 @@ Drags `VerbalExpressions.h` and `VerbalExpressions.m` into your projects and `im
 
 ```objective-c
 // url matches
-VerbalExpressions *tester = [[[[[[[[VerEX() startOfLine] then:@"http"] maybe:@"s"] then:@"://"] maybe:@"www."] anythingBut:@" "] range:@[@"a",@"e"]] endOfLine];
+VerbalExpressions *tester = [[[[[[[VerEX() startOfLine] then:@"http"] maybe:@"s"] then:@"://"] maybe:@"www."] anythingBut:@" "] endOfLine];
 
 NSString *testMe = @"https://www.google.com/";
 if( [tester test:testMe] ){
