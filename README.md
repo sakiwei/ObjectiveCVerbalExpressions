@@ -5,6 +5,13 @@ VerbalExpressions Objective C Library
 
 VerbalExpressions is an Objective C library that helps to construct difficult regular expressions.
 
+## Requirements
+VerbalExpressions requires either __iOS >= 4.3__, or __Mac OS >= 10.7__. Also, it uses __ARC__. 
+
+## Instalation
+### From source
+Drags `VerbalExpressions.h` and `VerbalExpressions.m` into your projects and `import "VerbalExpressions.h"`
+
 ## Examples
 
 ```objective-c
@@ -30,15 +37,3 @@ result = [[VerEX() find:@"red"] replace:@"We have a red house" by:@"blue"];
 NSLog(@"result = %@",result); 
 
 ```
-
-## Other Implementations
-You can see an up to date list of all ports in our [organization](https://github.com/VerbalExpressions).  
-
-- [Ruby](https://github.com/ryan-endacott/verbal_expressions)
-- [C#](https://github.com/VerbalExpressions/CSharpVerbalExpressions)
-- [Python](https://github.com/VerbalExpressions/PythonVerbalExpressions)
-- [Java](https://github.com/VerbalExpressions/JavaVerbalExpressions)
-- [Groovy](https://github.com/VerbalExpressions/GroovyVerbalExpressions)
-- [PHP](https://github.com/VerbalExpressions/PHPVerbalExpressions)
-- [Haskell](https://github.com/VerbalExpressions/HaskellVerbalExpressions)
-- [C++](https://github.com/VerbalExpressions/CppVerbalExpressions)
