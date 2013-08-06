@@ -9,6 +9,9 @@ VerbalExpressions is an Objective C library that helps to construct difficult re
 VerbalExpressions requires either __iOS >= 4.3__, or __Mac OS >= 10.7__. Also, it uses __ARC__. 
 
 ## Instalation
+### From [Cocoapods](http://cocoapods.org/)
+`pod 'VerbalExpressions'`
+
 ### From source
 Drags `VerbalExpressions.h` and `VerbalExpressions.m` into your projects and `import "VerbalExpressions.h"`
 
