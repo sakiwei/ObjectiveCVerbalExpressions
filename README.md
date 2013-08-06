@@ -1,11 +1,9 @@
-ObjectiveCVerbalExpressions
-===========================
-
 VerbalExpressions Objective C Library
+===========================
 
 - ported from [VerbalExpressions](https://github.com/jehna/VerbalExpressions)
 
-VerbalExpressions is a Objective C library that helps to construct difficult regular expressions.
+VerbalExpressions is an Objective C library that helps to construct difficult regular expressions.
 
 ## Examples
 
