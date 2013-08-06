@@ -239,6 +239,8 @@
 		24D7BC3D17B0972A00510E7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VerbalExpressions/VerbalExpressions-Prefix.pch";
 				INFOPLIST_FILE = "VerbalExpressions/VerbalExpressions-Info.plist";
@@ -251,6 +253,8 @@
 		24D7BC3E17B0972A00510E7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VerbalExpressions/VerbalExpressions-Prefix.pch";
 				INFOPLIST_FILE = "VerbalExpressions/VerbalExpressions-Info.plist";
