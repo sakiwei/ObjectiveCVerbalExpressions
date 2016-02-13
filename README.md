@@ -1,41 +1,85 @@
-VerbalExpressions Objective C Library
-===========================
+ObjectiveCVerbalExpressions
+=====================
+![version](http://cocoapod-badges.herokuapp.com/v/VEVerbalExpressions/badge.svg)
+![platform](http://cocoapod-badges.herokuapp.com/p/VEVerbalExpressions/badge.svg)
+[![Build Status](https://travis-ci.org/kishikawakatsumi/ObjectiveCVerbalExpressions.png?branch=master)](https://travis-ci.org/kishikawakatsumi/ObjectiveCVerbalExpressions)
+[![Coverage Status](https://coveralls.io/repos/kishikawakatsumi/ObjectiveCVerbalExpressions/badge.png?branch=master)](https://coveralls.io/r/kishikawakatsumi/ObjectiveCVerbalExpressions?branch=master)
 
-- ported from [VerbalExpressions](https://github.com/jehna/VerbalExpressions)
+## Objective-C Regular Expressions made easy
+ObjectiveCVerbalExpressions is a Objective-C library that helps to construct difficult regular expressions - ported from the awesome JavaScript [VerbalExpressions](https://github.com/jehna/VerbalExpressions).
 
-VerbalExpressions is an Objective C library that helps to construct difficult regular expressions.
-
-## Requirements
-VerbalExpressions requires either __iOS >= 4.3__, or __Mac OS >= 10.7__. Also, it uses __ARC__. 
-
-## Instalation
+## Installation
 ### From [CocoaPods](http://cocoapods.org/)
-`pod 'VerbalExpressions'`
+`pod 'VEVerbalExpressions'`
 
 ### From source
 Drags `VerbalExpressions.h` and `VerbalExpressions.m` into your projects and `import "VerbalExpressions.h"`
 
 ## Examples
 
-```objective-c
-// url matches
-VerbalExpressions *tester = [[[[[[[VerEX() startOfLine] then:@"http"] maybe:@"s"] then:@"://"] maybe:@"www."] anythingBut:@" "] endOfLine];
+Here's a couple of simple examples to give an idea of how VerbalExpressions works:
 
-NSString *testMe = @"https://www.google.com/";
-if( [tester test:testMe] ){
-    NSLog(@"We have a correct URL ");
-}else{
-    NSLog(@"The URL is incorrect");
+### Testing if we have a valid URL
+
+```objc
+// Create an example of how to test for correctly formed URLs
+VerbalExpressions *tester = VerEx()
+.startOfLine(YES)
+.then(@"http")
+.maybe(@"s")
+.then(@"://")
+.maybe(@"www")
+.anythingBut(@" ")
+.endOfLine(YES);
+
+// Create an example URL
+NSString *testMe = @"https://www.google.com";
+
+// Use test() method
+if (tester.test(testMe)) {
+    NSLog(@"%@", @"We have a correct URL"); // This output will fire
+} else {
+    NSLog(@"%@", @"The URL is incorrect");
 }
 
-// replace string
-NSString *replaceMe = @"Replace bird with a duck";
-tester = [VerEX() find:@"bird"];
-NSString *result = [tester replace:replaceMe by:@"duck"];
-NSLog(@"result = %@",result);
-
-// shorthand for string replace
-result = [[VerEX() find:@"red"] replace:@"We have a red house" by:@"blue"];
-NSLog(@"result = %@",result); 
-
+NSLog(@"%@", tester); // Ouputs the actual expression used: "^(http)(s)?(:�_/�_/)(www)?([^ ]*)$"
 ```
+
+### Replacing strings
+
+```objc
+NSString *replaceMe = @"Replace bird with a duck";
+
+// Create an expression that seeks for word "bird"
+VerbalExpressions *verEx = VerEx().find(@"bird");
+
+// Execute the expression like a normal RegExp object
+NSString *result = verEx.replace(replaceMe, @"duck" );
+
+NSLog(@"%@", result); // Outputs "Replace duck with a duck"
+```
+
+### Shorthand for string replace:
+
+```objc
+NSString *result2 = VerEx().find(@"red").replace(@"We have a red house", @"blue");
+
+NSLog(@"%@", result2); // Outputs "We have a blue house"
+```
+
+## API documentation
+
+I haven't added much documentation to this repo yet, but you can find the documentation for the original JavaScript repo on their [wiki](https://github.com/jehna/VerbalExpressions/wiki).  Most of the methods have been ported as of v0.1.0 of the JavaScript repo.  Just be sure to use the syntax explained above rather than the dot notation :)
+
+## Contributions
+Clone the repo and fork!
+Pull requests are warmly welcomed!
+
+## Issues
+ - I haven't yet ported the `stopAtFirst` method.
+
+## Thanks!
+Thank you to @jehna for coming up with the awesome original idea!
+
+## Other implementations  
+You can view all implementations on [VerbalExpressions.github.io](http://VerbalExpressions.github.io)
